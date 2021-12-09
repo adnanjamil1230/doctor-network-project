@@ -1,0 +1,259 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <title>DoctorNet</title>
+  <base href="/">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css">
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap"
+    rel="stylesheet">
+    
+  <link rel="icon" type="image/x-icon" href="favicon.ico">
+  <link rel="stylesheet" href="assets/css/slick-theme.less">
+  <link rel="stylesheet" href="assets/css/slick.less">
+  <!-- Add the swiper.css if you want default styling -->
+  <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css">
+</head>
+
+<body>
+  <app-root></app-root>
+</body>
+
+
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.js"></script>
+<script src="https://unpkg.com/swiper/swiper-bundle.min.js "></script>
+
+<script>
+    // $(".bannerSlider").slick();
+    $(document).ready(function() {
+        $('.bannerSlider').slick({
+            fade: true,
+            infinite: true,
+            autoplay: true,
+            autoplaySpeed: 1000,
+            arrows: false
+        });
+    });
+
+    $(document).ready(function() {
+        $('.speciality-slider').slick({
+            infinite: true,
+            slidesToShow: 5,
+            slidesToScroll: 1,
+
+            responsive: [{
+                    breakpoint: 1024,
+                    settings: {
+                        slidesToShow: 3,
+                        slidesToScroll: 3,
+                        infinite: true,
+                        arrows: false
+                    }
+                }, {
+                    breakpoint: 600,
+                    settings: {
+                        slidesToShow: 2,
+                        slidesToScroll: 2,
+                        arrows: false
+                    }
+                }, {
+                    breakpoint: 480,
+                    settings: {
+                        slidesToShow: 1,
+                        slidesToScroll: 1,
+                        arrows: false
+                    }
+                }
+                // You can unslick at a given breakpoint now by adding:
+                // settings: "unslick"
+                // instead of a settings object
+            ]
+        });
+    });
+
+
+
+
+    $('.count').each(function() {
+        $(this).prop('Counter', 0).animate({
+            Counter: $(this).text()
+        }, {
+            duration: 4000,
+            easing: 'swing',
+            step: function(now) {
+                $(this).text(Math.ceil(now));
+            }
+        });
+    })
+
+    $('.icon').click(function() {
+        $('.main-ul').toggleClass("icon-style");
+    });
+
+    function myFunction(x) {
+        x.classList.toggle("change");
+    }
+
+
+    // ============ Works Slider 
+
+    // $(document).ready(function() {
+    //     const slider = $(".work-slider");
+    //     slider
+    //         .slick({
+
+    //         });
+
+    //     slider.on('wheel', (function(e) {
+    //         e.preventDefault();
+
+    //         if (e.originalEvent.deltaY < 0) {
+    //             $(this).slick('slickNext');
+    //         } else {
+    //             $(this).slick('slickPrev');
+    //         }
+    //     }));
+    // });
+    //     $('.work-slider').slick({
+    //         infinite: false,
+    //         prevArrow: '.prev',
+    //         nextArrow: '.next'
+
+    //     });
+    //     slider.on('wheel', (function(e) {
+    //         e.preventDefault();
+
+    //         if (e.originalEvent.deltaY < 0) {
+    //             $(this).slick('slickNext');
+    //         } else {
+    //             $(this).slick('slickPrev');
+    //         }
+
+    //     }));
+    // });
+
+
+    // $(document).ready(function() {
+    //     var counter = 0;
+
+
+    //     $('slickNext').scroll(function() {
+
+    //         if (counter <= 2) {
+    //             counter++;
+    //             $('.round-box').removeClass("active" + (counter - 1));
+    //             $('.round-box').addClass("active" + counter);
+
+    //         } else {
+    //             counter == 3
+
+    //         }
+
+    //     });
+
+
+    //     $('slickPrev').scroll(function() {
+
+    //         if (counter > 0) {
+    //             $('.round-box').addClass("active" + (counter - 1));
+    //             $('.round-box').removeClass("active" + counter);
+
+    //             counter--;
+
+
+    //         } else {
+    //             counter == 1;
+
+
+    //         }
+
+    //     });
+
+    // });
+    // });
+    var swiper = new Swiper('.work-slider', {
+        infinite: false,
+        loop: false,
+        slidesPerView: 1,
+        centeredSlides: true,
+        mousewheel: {
+            eventsTarget: '#work',
+            releaseOnEdges: true,
+        },
+        // pagination: {
+        //     el: ".custom-swiper-pagination",
+        //     clickable: true,
+        //     renderBullet: (index, className) => {
+        //         return '<span class="' + className + '">' + ("") + "</span>";
+        //     },
+        // },
+    });
+    $(document).ready(function() {
+
+        swiper.on('slideChange', function() {
+            if (this.activeIndex === 0) {
+                $('.round-box').removeClass('active3');
+                $('.round-box').removeClass('active2');
+                $('.round-box').removeClass('active1');
+                $('.round-box').addClass('active0');
+            } else if (this.activeIndex === 1) {
+                $('.round-box').removeClass('active0');
+                $('.round-box').removeClass('active3');
+                $('.round-box').removeClass('active2');
+                $('.round-box').addClass('active1');
+            } else if (this.activeIndex === 2) {
+                $('.round-box').removeClass('active3');
+                $('.round-box').removeClass('active0');
+                $('.round-box').removeClass('active1');
+                $('.round-box').addClass('active2');
+            } else if (this.activeIndex === 3) {
+                $('.round-box').removeClass('active2');
+                $('.round-box').removeClass('active1');
+                $('.round-box').removeClass('active0');
+                $('.round-box').addClass('active3');
+            }
+
+
+        });
+    });
+
+    $(function() {
+        swiper.on('slideChange', function() {
+            if (this.activeIndex === 0) {
+                $('.tab-w').removeClass('active3');
+                $('.tab-w').removeClass('active2');
+                $('.tab-w').removeClass('active1');
+                $('.tab-w').addClass('active0');
+            } else if (this.activeIndex === 1) {
+                $('.tab-w').removeClass('active0');
+                $('.tab-w').removeClass('active3');
+                $('.tab-w').removeClass('active2');
+                $('.tab-w').addClass('active1');
+            } else if (this.activeIndex === 2) {
+                $('.tab-w').removeClass('active3');
+                $('.tab-w').removeClass('active0');
+                $('.tab-w').removeClass('active1');
+                $('.tab-w').addClass('active2');
+            } else if (this.activeIndex === 3) {
+                $('.tab-w').removeClass('active2');
+                $('.tab-w').removeClass('active1');
+                $('.tab-w').removeClass('active0');
+                $('.tab-w').addClass('active3');
+            }
+        });
+    });
+</script>
+<script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+<!-- Add SWIPER-JS link if you want default styling -->
+
+<script>
+    AOS.init();
+</script>
+
+</html>
