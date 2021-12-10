@@ -9,7 +9,6 @@ import { BannerComponent } from './banner/banner.component';
 import * as $ from "jquery";
 import { AwareComponent } from './aware/aware.component';
 import { ArticleComponent } from './article/article.component';
-
 import { CounterComponent } from './counter/counter.component';
 import { WorkComponent } from './work/work.component';
 import { TestComponent } from './test/test.component';
