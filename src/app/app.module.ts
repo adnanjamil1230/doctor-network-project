@@ -14,6 +14,7 @@ import { CounterComponent } from './counter/counter.component';
 import { WorkComponent } from './work/work.component';
 import { TestComponent } from './test/test.component';
 import { CtaComponent } from './cta/cta.component';
+import {HttpClientModule} from '@angular/common/http'
 @NgModule({
   declarations: [
     AppComponent,
@@ -29,7 +30,8 @@ import { CtaComponent } from './cta/cta.component';
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]
